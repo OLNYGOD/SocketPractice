@@ -8,6 +8,8 @@ const server = net.createServer(socket => {
 
     socket.on('data', raw => {
         const data = JSON.parse(raw.toString());
+        
+        console.log('Data received:', data);
 
         // 使用者註冊
         if (data.type === "register") {
