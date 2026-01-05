@@ -13,7 +13,8 @@ const server = net.createServer(socket => {
 
         // 使用者註冊
         if (data.type === "register") {
-            clients[data.userId] = socket;
+            clients[data.userId] = { socket,
+            lastSeen: Date.now()}
             console.log(`${data.userId} registered`);
             return;
         }
@@ -38,6 +39,15 @@ const server = net.createServer(socket => {
         });
 
         console.log('Received:', data);
+
+        // 🔥 心跳處理
+        if (data.type === 'ping') {
+            const userId = data.userId;
+            if (clients[userId]) {
+            clients[userId].lastSeen = Date.now();
+            }
+            return;
+        }
         // 收到特定type 則回傳特定訊息
         // if (msg === 'PING') {
         //     socket.write('PONG\n');
@@ -67,6 +77,17 @@ const server = net.createServer(socket => {
         console.log('Socket error:', err.message);
     });
 });
+
+setInterval(() => {
+  const now = Date.now();
+  for (const id in clients) {
+    if (now - clients[id].lastSeen > 30000) {
+      console.log(`${id} timeout`);
+      clients[id].socket.destroy();
+      delete clients[id];
+    }
+  }
+}, 5000);
 
 server.listen(3000, () => {
     console.log('Server listening on port 3000');
