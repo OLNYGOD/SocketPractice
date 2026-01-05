@@ -1,0 +1,6 @@
+framework module Pods_SocketPractice {
+  umbrella header "Pods-SocketPractice-umbrella.h"
+
+  export *
+  module * { export * }
+}

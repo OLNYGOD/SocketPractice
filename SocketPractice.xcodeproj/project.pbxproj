@@ -6,8 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6F374C1D954E5B436632B971 /* Pods_SocketPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA1ADA674F5BFA4D7981AE7 /* Pods_SocketPractice.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		10A8DDB22ED6A00800DCAD2F /* SocketPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10A8DE0A2ED6AA3900DCAD2F /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8372040DEE04C6397FAF5E /* Pods-SocketPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketPractice.debug.xcconfig"; path = "Target Support Files/Pods-SocketPractice/Pods-SocketPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		CD241BB2839566125B5B4212 /* Pods-SocketPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketPractice.release.xcconfig"; path = "Target Support Files/Pods-SocketPractice/Pods-SocketPractice.release.xcconfig"; sourceTree = "<group>"; };
+		FCA1ADA674F5BFA4D7981AE7 /* Pods_SocketPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocketPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F374C1D954E5B436632B971 /* Pods_SocketPractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +56,8 @@
 			children = (
 				10A8DDB42ED6A00800DCAD2F /* SocketPractice */,
 				10A8DDB32ED6A00800DCAD2F /* Products */,
+				4EEC54D75FC7470843FB81BF /* Pods */,
+				8E43E2E40C0311920FD6FE6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +69,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4EEC54D75FC7470843FB81BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D8372040DEE04C6397FAF5E /* Pods-SocketPractice.debug.xcconfig */,
+				CD241BB2839566125B5B4212 /* Pods-SocketPractice.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8E43E2E40C0311920FD6FE6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10A8DE0A2ED6AA3900DCAD2F /* CocoaAsyncSocket.framework */,
+				FCA1ADA674F5BFA4D7981AE7 /* Pods_SocketPractice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10A8DDC52ED6A00A00DCAD2F /* Build configuration list for PBXNativeTarget "SocketPractice" */;
 			buildPhases = (
+				2BE4775B9763D035FB4EC63B /* [CP] Check Pods Manifest.lock */,
 				10A8DDAE2ED6A00800DCAD2F /* Sources */,
 				10A8DDAF2ED6A00800DCAD2F /* Frameworks */,
 				10A8DDB02ED6A00800DCAD2F /* Resources */,
+				9C2F02C261777BC9F48C7344 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +108,6 @@
 				10A8DDB42ED6A00800DCAD2F /* SocketPractice */,
 			);
 			name = SocketPractice;
-			packageProductDependencies = (
-			);
 			productName = SocketPractice;
 			productReference = 10A8DDB22ED6A00800DCAD2F /* SocketPractice.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +156,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BE4775B9763D035FB4EC63B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocketPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C2F02C261777BC9F48C7344 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocketPractice/Pods-SocketPractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocketPractice/Pods-SocketPractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SocketPractice/Pods-SocketPractice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10A8DDAE2ED6A00800DCAD2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,16 +211,19 @@
 /* Begin XCBuildConfiguration section */
 		10A8DDC62ED6A00A00DCAD2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D8372040DEE04C6397FAF5E /* Pods-SocketPractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SocketPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -167,16 +241,19 @@
 		};
 		10A8DDC72ED6A00A00DCAD2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD241BB2839566125B5B4212 /* Pods-SocketPractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SocketPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -229,7 +306,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -292,7 +369,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
