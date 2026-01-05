@@ -22,8 +22,8 @@ const server = net.createServer(socket => {
         // 傳訊息：Server 轉發
         if (data.type === "message") {
             const target = clients[data.to];
-            if (target) {
-                target.write(JSON.stringify({
+            if (target && target.socket) {
+                target.socket.write(JSON.stringify({
                     from: data.from,
                     text: data.text
                 }));
